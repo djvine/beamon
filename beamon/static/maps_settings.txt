@@ -1,0 +1,9 @@
+      This file will set some MAPS settings mostly do do with fitting
+VERSION: 0
+DETECTOR_ELEMENTS: 4
+MAX_NUMBER_OF_PROCESSORS_TO_USE: 3
+QUICK_DIRTY: 0
+XRF_BIN: 0.000000
+NNLS: 0
+XANES_SCAN: 0
+DETECTOR_TO_START_WITH: 0

@@ -1,0 +1,7 @@
+SQLAlchemy==0.9.7
+ipdb==0.8
+ipython==2.2.0
+numpy==1.9.0
+pyepics==3.2.3
+pyinotify==0.9.4
+scipy==0.14.0
