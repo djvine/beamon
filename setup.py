@@ -11,7 +11,8 @@ config = {
     'author_email': 'djvine@gmail.com',
     'version': '0.1',
     'install_requires': [],
-    'packages': ['larch','beamon'],
+    'data_files': [('beamon', ['beamon/xrayref.db'])],
+    'packages': ['beamon'],
     'scripts': [],
     'name': 'beamon'
 }
