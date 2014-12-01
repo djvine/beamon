@@ -22,6 +22,7 @@ from xml.sax import SAXParseException
 import ipdb
 from collections import defaultdict
 import ConfigParser
+import socket
 cf = ConfigParser.ConfigParser()
 
 debug = False
@@ -41,11 +42,16 @@ The credentials are stored in a '.ini' file and read by python.
  that's it.
 
 """
-cf.read('/local/beamon/beamon/credentials.ini')
+if socket.gethostname()=='dawn':
+    cf.read('/home/david/python/beamon/beamon/credentials.ini')
+    base = 'https://schedule.aps.anl.gov/beamschedds/springws/'
+else:
+    cf.read('/local/beamon/beamon/credentials.ini')
+    base = 'https://schedule.aps.anl.gov:8443/beamschedds/springws/'
 username = cf.get('credentials', 'username')
 password = cf.get('credentials', 'password')
 # Uncomment this for INTERNAL network
-base = 'https://schedule.aps.anl.gov:8443/beamschedds/springws/'
+#base = 'https://schedule.aps.anl.gov:8443/beamschedds/springws/'
 # Uncomment this for EXTERNAL network
 #base = 'https://schedule.aps.anl.gov/beamschedds/springws/'
 
@@ -208,6 +214,6 @@ if __name__ == '__main__':
     runScheduleServiceClient, beamlineScheduleServiceClient = setup_connection()
     print(findRunName(now, now))
     #print(get_users('2-ID-B', datetime.datetime(2014, 11, 5, 10)))
-    print(get_users('2-ID-E', datetime.datetime(2014, 10, 9, 10))) 
-    print(get_pi('2-ID-E', datetime.datetime(2014, 10, 9, 10))) 
+    print(get_users('2-ID-E', datetime.datetime(2014, 10, 9, 10)))
+    print(get_pi('2-ID-E', datetime.datetime(2014, 10, 9, 10)))
 
